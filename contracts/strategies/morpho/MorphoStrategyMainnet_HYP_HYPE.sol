@@ -1,0 +1,25 @@
+//SPDX-License-Identifier: Unlicense
+pragma solidity 0.8.26;
+
+import "./MorphoStrategy.sol";
+
+contract MorphoStrategyMainnet_HYP_HYPE is MorphoStrategy {
+
+  constructor() {}
+
+  function initializeStrategy(
+    address _storage,
+    address _vault
+  ) public initializer {
+    address underlying = address(0x5555555555555555555555555555555555555555);
+    address morphoVault = address(0x92B518e1cD76dD70D3E20624AEdd7D107F332Cff);
+    address ueth = address(0xBe6727B535545C67d5cAa73dEa54865B92CF7907);
+    MorphoStrategy.initializeBaseStrategy(
+      _storage,
+      underlying,
+      _vault,
+      morphoVault,
+      ueth
+    );
+  }
+}

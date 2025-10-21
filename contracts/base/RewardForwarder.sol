@@ -10,7 +10,7 @@ import "./interface/IController.sol";
 import "./interface/IRewardForwarder.sol";
 import "./interface/IProfitSharingReceiver.sol";
 import "./interface/IStrategy.sol";
-import "./interface/IUniversalLiquidator.sol";
+import "./interface/universalLiquidator/IUniversalLiquidator.sol";
 import "./inheritance/Controllable.sol";
 
 /**

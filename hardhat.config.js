@@ -21,7 +21,7 @@ module.exports = {
       chainId: 999,
       forking: {
         url: `https://hyperliquid-mainnet.g.alchemy.com/v2/${process.env.ALCHEMEY_KEY}`,
-        // blockNumber: 36568650, // <-- edit here
+        blockNumber: 17064950, // <-- edit here
       },
       // allowUnlimitedContractSize: true,
     },
