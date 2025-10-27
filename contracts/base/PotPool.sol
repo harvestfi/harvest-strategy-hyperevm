@@ -22,7 +22,6 @@ abstract contract IRewardDistributionRecipient is Ownable {
      * @param _rewardDistributions Array of addresses allowed to distribute rewards.
      */
     constructor(address[] memory _rewardDistributions) {
-        rewardDistribution[0x97b3e5712CDE7Db13e939a188C8CA90Db5B05131] = true;
         for(uint256 i = 0; i < _rewardDistributions.length; i++) {
           rewardDistribution[_rewardDistributions[i]] = true;
         }
@@ -187,7 +186,6 @@ contract PotPool is IRewardDistributionRecipient, Controllable, ERC20, Reentranc
      * @param _storage Address of the storage contract.
      * @param _name Name of the ERC20 token.
      * @param _symbol Symbol of the ERC20 token.
-     * @param __decimals Number of decimals for the ERC20 token.
      */
     constructor(
         address[] memory _rewardTokens,
@@ -196,17 +194,15 @@ contract PotPool is IRewardDistributionRecipient, Controllable, ERC20, Reentranc
         address[] memory _rewardDistribution,
         address _storage,
         string memory _name,
-        string memory _symbol,
-        uint8 __decimals
+        string memory _symbol
       )
       ERC20(_name, _symbol)
       IRewardDistributionRecipient(_rewardDistribution)
       Controllable(_storage)
       ReentrancyGuard()
     {
-        require(_decimals == ERC20(_lpToken).decimals(), "decimals has to be aligned with the lpToken");
         require(_rewardTokens.length != 0, "should initialize with at least 1 rewardToken");
-        _decimals = __decimals;
+        _decimals = ERC20(_lpToken).decimals();
         rewardTokens = _rewardTokens;
         lpToken = _lpToken;
         duration = _duration;
