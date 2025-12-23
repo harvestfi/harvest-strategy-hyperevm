@@ -1,9 +1,9 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity 0.8.26;
 
-import "./HyperlendStrategy.sol";
+import "../hypurr/HypurrStrategy.sol";
 
-contract HyperlendStrategyMainnet_UBTC is HyperlendStrategy {
+contract HyperlendStrategyMainnet_UBTC is HypurrStrategy {
 
   constructor() {}
 
@@ -13,7 +13,7 @@ contract HyperlendStrategyMainnet_UBTC is HyperlendStrategy {
   ) public initializer {
     address underlying = address(0x9FDBdA0A5e284c32744D2f17Ee5c74B284993463);
     address aToken = address(0xd2012c6DfF7634f9513A56a1871b93e4505EA851);
-    HyperlendStrategy.initializeBaseStrategy(
+    HypurrStrategy.initializeBaseStrategy(
       _storage,
       underlying,
       _vault,
