@@ -3,7 +3,7 @@ pragma solidity 0.8.26;
 
 import "./MorphoStrategy.sol";
 
-contract MorphoStrategyMainnet_FLX_USDT0_FRONTIER is MorphoStrategy {
+contract MorphoStrategyMainnet_FLFR_USDT0 is MorphoStrategy {
 
   constructor() {}
 
